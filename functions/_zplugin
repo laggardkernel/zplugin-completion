@@ -16,10 +16,16 @@ _zplugin_plg_spec() {
       plugins=($(zplugin times|sed 's/\x1b\[[0-9;]*m//g'|cut -d ' ' -f4))
       _arguments "*:plugins:($plugins)"
     ;;
-    (cenable|cdisable)
+    (cdisable)
       local -a cnames
-      cnames=($ZPLGM[COMPLETIONS_DIR]/*)
+      cnames=($ZPLGM[COMPLETIONS_DIR]/_*)
       cnames=("${cnames[@]##*/_}") # cnames=("${cnames[@]%%.*}")
+      _arguments "*:completion names:($cnames)"
+    ;;
+    (cenable)
+      local -a cnames
+      cnames=($ZPLGM[COMPLETIONS_DIR]/[!_]*)
+      cnames=("${cnames[@]##*/}")
       _arguments "*:completion names:($cnames)"
     ;;
   esac

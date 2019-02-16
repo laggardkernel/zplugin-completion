@@ -21,8 +21,8 @@ $ zplg update laggardkernel/zplugin-completion
 ```
 
 ## Todo
-- [x] Completion for `plg-spec`
-- [ ] Completion for `cname`
+- [x] `plg-spec` completion
+- [x] `cname` completion
 
 ## License
 
