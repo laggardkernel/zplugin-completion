@@ -12,8 +12,15 @@ _zplugin_plg_spec() {
   local IFS=$'\n\t'
   case $words[1] in
     (load|light|unload|update|status|report|delete|cd|create|edit|glance|stress|changes|creinstall|cuninstall|compile|uncompile|recall)
-      local plugins=($(zplugin times|sed 's/\x1b\[[0-9;]*m//g'|cut -d ' ' -f4))
+      local -a plugins
+      plugins=($(zplugin times|sed 's/\x1b\[[0-9;]*m//g'|cut -d ' ' -f4))
       _arguments "*:plugins:($plugins)"
+    ;;
+    (cenable|cdisable)
+      local -a cnames
+      cnames=($ZPLGM[COMPLETIONS_DIR]/*)
+      cnames=("${cnames[@]##*/_}") # cnames=("${cnames[@]%%.*}")
+      _arguments "*:completion names:($cnames)"
     ;;
   esac
 }
