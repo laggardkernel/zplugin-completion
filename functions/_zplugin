@@ -90,7 +90,7 @@ _zplugin() {
 
   _arguments -C \
     '1:cmd:->cmds' \
-    '*:: :->args' \
+    '*:: :->args'
 
   case "$state" in
     (cmds)
