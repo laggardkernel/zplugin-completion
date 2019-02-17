@@ -10,7 +10,6 @@ Provides completion for ZSH plugin manager [zdharma/zplugin](https://github.com/
 The only ZSH plugin manager solves the time-consuming init for `nvm`, `nodenv`, `pyenv`, `rvm`, `rbenv`, `thefuck`, `fasd`, etc, with its amazing async [Turbo Mode](https://github.com/zdharma/zplugin#turbo-mode-zsh--53).
 
 ```zsh
-zplugin ice blockf
 zplugin light laggardkernel/zplugin-completion
 ```
 
