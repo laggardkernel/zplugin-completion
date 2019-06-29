@@ -14,10 +14,10 @@ _zplugin_plg_spec() {
     (load|light|unload|update|status|report|delete|cd|create|edit|glance|stress|changes|creinstall|cuninstall|compile|uncompile|recall)
       local -a plugins
       if command -v perl &>/dev/null; then
-        plugins=($(zplugin times|perl -pe 's/\x1b\[[0-9;]*m//g'|cut -d ' ' -f4))
+        plugins=($(zplugin times|perl -pe 's/\x1b\[[0-9;]*m//g'|awk '{print $4}'))
       else
         # gnu sed
-        plugins=($(zplugin times|sed 's/\x1b\[[0-9;]*m//g'|cut -d ' ' -f4))
+        plugins=($(zplugin times|sed 's/\x1b\[[0-9;]*m//g'|awk '{print $4}'))
       fi
       _arguments "*:plugins:($plugins)"
     ;;
